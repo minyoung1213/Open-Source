@@ -10,8 +10,8 @@ import sys
 # 경로 설정
 # test_dir은 테스트 이미지 들어있는 폴더
 test_dir = r"C:\Users\jiyunae\OneDrive\Desktop\Sookmyung\test"
-model_path = r"C:\Users\jiyunae\OneDrive\Desktop\Sookmyung\Open-Source\Pose\pose_model.pt"
-label_map_path = r"C:\Users\jiyunae\OneDrive\Desktop\Sookmyung\Open-Source\Pose\Data\label_map.json"
+model_path = r"C:\Open-Source\Pose\pose_model.pt"
+label_map_path = r"C:\Open-Source\Pose\Data\label_map.json"
 
 # pose_classifier 임포트 경로 설정
 sys.path.append(os.path.abspath("./Train"))

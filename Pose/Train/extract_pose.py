@@ -4,7 +4,7 @@ import os
 import csv
 
 # 설정
-dataset_dir = r'C:\Users\jiyunae\OneDrive\Desktop\Sookmyung\dataset'  # 이미지 폴더 루트
+dataset_dir = r'C:\dataset'  # 이미지 폴더 루트
 output_csv = "pose_data1.csv"  # 결과 저장 파일
 
 # MediaPipe pose 모델

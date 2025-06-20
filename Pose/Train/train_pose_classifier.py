@@ -9,8 +9,8 @@ from torch.utils.data import TensorDataset, DataLoader
 from pose_classifier import PoseClassifier
 
 # 데이터 불러오기
-X = np.load("X.npy")
-y = np.load("y.npy")
+X = np.load(r"C:\Open-Source\Pose\Data\X.npy")
+y = np.load(r"C:\Open-Source\Pose\Data\y.npy")
 
 # Tensor 변환
 X_tensor = torch.tensor(X, dtype=torch.float32)

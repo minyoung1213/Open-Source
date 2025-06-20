@@ -7,11 +7,11 @@ import json
 import sys
 import os
 sys.path.append(os.path.abspath("./Train"))
-from pose_classifier import PoseClassifier
+from Train.pose_classifier import PoseClassifier
 
 # 설정
-model_path = r"C:\Users\jiyunae\OneDrive\Desktop\Sookmyung\Open-Source\Pose\pose_model.pt"
-label_map_path = r"C:\Users\jiyunae\OneDrive\Desktop\Sookmyung\Open-Source\Pose\Data\label_map.json"
+model_path = r"C:\Open-Source\Pose\pose_model.pt"
+label_map_path = r"C:\Open-Source\Pose\Data\label_map.json"
 
 # 라벨 맵 로드
 with open(label_map_path, "r") as f:
