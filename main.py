@@ -1,3 +1,4 @@
+#초기 테스트용
 import cv2
 import numpy as np
 from collections import deque
