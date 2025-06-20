@@ -6,7 +6,7 @@ import mediapipe as mp
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
-# 웹캠을 열어 실시간으로 영상을 가져옵니다.
+# 웹캠을 열어 실시간으로 영상을 불러옴
 cap = cv2.VideoCapture(0)
 
 # 포즈 모델 사용
