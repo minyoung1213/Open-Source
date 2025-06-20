@@ -1,3 +1,4 @@
+#파일 확장자로 이미지,영상 자동 구분해서 추출, 판별하도록 수정 + tts 추가함
 import cv2
 import torch
 import torch.nn.functional as F
@@ -13,12 +14,12 @@ from detector.warning_output import WarningOutput
 import mediapipe as mp
 
 warner = WarningOutput()  # ← TTS 객체 선언
-# === 설정 ===
+# 설정
 model_path = "Data/pose_model.pt"
 label_map_path = "Data/label_map.json"
 input_path = "Data/test1.MOV"   # ← 여기만 바꾸면 됨 (사진 or 영상 파일)
 
-# === 라벨맵 & 모델 로드 ===
+# 라벨맵 & 모델 로드 
 with open(label_map_path, "r") as f:
     raw_label_map = json.load(f)
 label_map = {v: k for k, v in raw_label_map.items()}
@@ -27,17 +28,17 @@ model = PoseClassifier(input_dim=99, num_classes=len(label_map))
 model.load_state_dict(torch.load(model_path, map_location="cpu"))
 model.eval()
 
-# === MediaPipe 초기화 ===
+# MediaPipe 초기화 
 mp_pose = mp.solutions.pose
 mp_drawing = mp.solutions.drawing_utils
 pose = mp_pose.Pose(static_image_mode=True)
 
-# === 확장자 기반으로 이미지 vs 영상 구분 ===
+# 확장자 기반으로 이미지 vs 영상 구분 
 ext = os.path.splitext(input_path)[1].lower()
 is_image = ext in ['.jpg', '.jpeg', '.png']
 
 if is_image:
-    # ===== 이미지 처리 =====
+    # 이미지 처리 
     image = cv2.imread(input_path)
     if image is None:
         raise FileNotFoundError(f"이미지를 찾을 수 없습니다: {input_path}")
@@ -72,7 +73,7 @@ if is_image:
         cv2.destroyAllWindows()
 
 else:
-    # ===== 영상 처리 =====
+    # 영상 처리
     cap = cv2.VideoCapture(input_path)
     if not cap.isOpened():
         raise FileNotFoundError(f"❌ 영상을 열 수 없습니다: {input_path}")
